@@ -1,10 +1,10 @@
 import './App.css';
-import Overlay from './components/overlay';
+import NotesProcess from './components/process/process';
 
 function App() {
   return (
     <div className="App">
-      <Overlay />
+      <NotesProcess />
     </div>
   );
 }
