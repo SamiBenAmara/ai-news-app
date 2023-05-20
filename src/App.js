@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import MainPage from './Components/MainPage';
+import Overlay from './components/overlay';
 
 function App() {
   return (
     <div className="App">
-      <MainPage />
+      <Overlay />
     </div>
   );
 }
