@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TestQuestions = ({ onNext }) => {
+const TestQuestions = ({ onNext, data, setData }) => {
     return (
         <>
             <p> Insert questions here</p>

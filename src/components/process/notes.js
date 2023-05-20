@@ -1,32 +1,27 @@
 import React, { useState } from 'react';
 
-const NotesInput = ({ onNext }) => {
+const NotesInput = ({ onNext, data, setData }) => {
     const [text, setText] = useState('');
 
     const handleChange = (event) => {
         setText(event.target.value);
     };
 
-    const handleButtonClick = () => {
-        // Perform API call using the 'text' variable
-        // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-        fetch('YOUR_API_ENDPOINT', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ notes: text }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                // Handle the API response data here
-                console.log(data);
-            })
-            .catch((error) => {
-                // Handle any errors that occur during the API call
-                console.error(error);
-            });
-            onNext();
+    const handleButtonClick = async () => {
+        // const { Configuration, OpenAIApi } = require("openai");
+
+        // const configuration = new Configuration({
+        //     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+        // });
+        // const openai = new OpenAIApi(configuration);
+
+        // const completion = await openai.createCompletion({
+        //     model: "text-davinci-003",
+        //     prompt: "Hello world",
+        // });
+        // setData(completion.data.choices[0].text);
+        // console.log(completion.data.choices[0].text);
+        onNext();
     };
 
     return (
