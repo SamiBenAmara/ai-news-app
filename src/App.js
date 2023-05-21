@@ -9,21 +9,26 @@ import FlashCardList from './components/test/flashcards';
 import PracticeTest from './components/test/practice_test';
 import SignupPage from './components/SignupPage/SignupPage';
 import LoginPage from './components/LoginPage/LoginPage';
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/generate" element={<Overlay currentChildName="Generate Questions"><NotesProcess /></Overlay>} />
-          <Route path="/home" element={<Overlay currentChildName="Home" ><LandingPage /></Overlay>} />
-          <Route path="/" element={<><LoginPage /> <SignupPage /></>} />
-          <Route path="/tests" element={<Overlay currentChildName="Tests"><TestsList /></Overlay>} />
-          <Route path="/flashcards" element={<Overlay currentChildName="Tests"><FlashCardList /></Overlay>} />
-          <Route path="/practice" element={<Overlay currentChildName="Tests"><PracticeTest /></Overlay>} />
-        </Routes>
-      </div>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/generate" element={<Overlay currentChildName="Generate Questions"><NotesProcess /></Overlay>} />
+            <Route path="/home" element={<Overlay currentChildName="Home" ><LandingPage /></Overlay>} />
+            <Route path="/" element={<><LoginPage /> <SignupPage /></>} />
+            <Route path="/tests" element={<Overlay currentChildName="Tests"><TestsList /></Overlay>} />
+            <Route path="/flashcards" element={<Overlay currentChildName="Tests"><FlashCardList /></Overlay>} />
+            <Route path="/practice" element={<Overlay currentChildName="Tests"><PracticeTest /></Overlay>} />
+          </Routes>
+        </div>
+      </Router>
+    </QueryClientProvider>
   );
 }
 

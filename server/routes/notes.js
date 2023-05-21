@@ -75,4 +75,22 @@ router.post('/notes', async (req, res) => {
     }
 });
 
+// Get a list of the tests that the user has
+router.post('/tests', async (req, res) => {
+
+    const findUser = await User.findOne({ email: req.body.email });
+
+    if (!findUser) {
+        req.status(400).json({ message: "User does not exist" });
+    }
+
+    try {
+        const tests = findUser.tests;
+        res.send(tests);
+    } catch (error) {
+        res.send(500).json({ message: "Error, coudln't get the tests" });
+    }
+
+});
+
 module.exports = router;

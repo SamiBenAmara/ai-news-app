@@ -1,5 +1,7 @@
 import React from 'react';
 import FlashCard from './card/FlashCard'
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
 const cardList = [
     {
@@ -44,18 +46,52 @@ const cardList = [
     }
 ];
 
+const getTests = async () => {
+    axios.post(`http://localhost:5000/notes/tests`, { email: localStorage.getItem('email') })
+      .catch((error) => console.log(error));
+};
 
 function FlashCardList() {
+
+    const { data, status } = useQuery('tests', getTests);
+
     return (
-        <div className="h-screen">
-            {cardList.map((card, index) => (
-                <FlashCard
-                    key={index}
-                    front={card.front}
-                    back={card.back}
-                />
-            ))}
-        </div>
+        <>
+            {/* <label for="tests" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+            <select id="tests" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>Choose a Test</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+            </select> */}
+
+            { status === "success" && 
+                <>
+                    <label for="tests" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+                    <select id="tests" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected>Choose a Test</option>
+                        {data.map((item) => {
+                            <option value="US">{item.topic}</option>
+                        })}
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                    </select>
+                </>
+            }
+
+            <div className="h-screen">
+                {cardList.map((card, index) => (
+                    <FlashCard
+                        key={index}
+                        front={card.front}
+                        back={card.back}
+                    />
+                ))}
+            </div>
+        </>
     );
 }
 
