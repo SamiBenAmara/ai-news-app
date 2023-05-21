@@ -10,14 +10,16 @@ const NotesProcess = () => {
     setCurrentStep(currentStep + 1);
   };
 
+  const [data, setData] = useState(null);
+
   // Render components based on the current step
   let currentComponent;
   switch (currentStep) {
     case 1:
-      currentComponent = <NotesInput onNext={handleNext} />;
+      currentComponent = <NotesInput onNext={handleNext} data={data} setData={setData} />;
       break;
     case 2:
-      currentComponent = <TestQuestions onNext={handleNext} />;
+      currentComponent = <TestQuestions onNext={handleNext} data={data} setData={setData} />;
       break;
     case 3:
       currentComponent = <FinishedNotes />;
