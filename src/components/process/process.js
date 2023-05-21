@@ -30,7 +30,6 @@ const NotesProcess = () => {
 
   return (
     <div>
-      <img src="logo.png" alt="Description of the image"></img>
       {currentComponent}
     </div>
   );
