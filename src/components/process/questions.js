@@ -36,6 +36,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
     };
     return (
         <>
+            <h1 class="text-4xl font-bold mb-4">{data.topic}</h1>
             <h2>Multiple Choice Questions</h2>
             {data.multichoices.map((question, index) => (
                 <div key={index}>
