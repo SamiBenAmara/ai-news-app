@@ -44,6 +44,8 @@ const TestQuestions = ({ onNext, data, setData }) => {
             })
             .catch(error => console.log(error));
     };
+    console.log(data);
+    console.log(data.multichoices);
     return (
         <>
             <div className="bg-gray-200 min-h-screen p-5 mx-80">
