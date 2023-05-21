@@ -205,7 +205,7 @@ const NotesInput = ({ onNext, data, setData }) => {
     return (
 <div className="bg-gray-700 min-h-screen">
   <div className="container">
-    <div className="left-content flex flex-col items-start">
+    <div className="left-content flex flex-col items-start ml-10">
       <div className="col-span-full">
         <label htmlFor="Notes" className="block text-4xl font-bold leading-6 text-gray-200 pt-20 pb-10">
           Copy your notes
@@ -233,6 +233,9 @@ const NotesInput = ({ onNext, data, setData }) => {
           Generate Questions
         </button>
       </div>
+    </div>
+    <div classname="left-content flex flex-col items-start ml-10 bordercolor">
+
     </div>
   </div>
 </div>
