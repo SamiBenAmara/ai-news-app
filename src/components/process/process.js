@@ -30,7 +30,6 @@ const NotesProcess = () => {
 
   return (
     <div>
-      <h1>Notes in take lol</h1>
       {currentComponent}
     </div>
   );
