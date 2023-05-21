@@ -6,16 +6,22 @@ const TestQuestions = ({ onNext, data, setData }) => {
         event,
         section,
         index,
-        prop
+        prop,
+        newlist = []
     ) => {
         const { value } = event.target;
 
         setData((data) => {
             const updatedSection = [...data[section]];
-            updatedSection[index] = {
-                ...updatedSection[index],
-                [prop]: value,
-            };
+            const updatedItem = { ...updatedSection[index] };
+
+            if (prop === 'possible_answers') {
+                updatedItem[prop] = newlist;
+            } else {
+                updatedItem[prop] = value;
+            }
+
+            updatedSection[index] = updatedItem;
 
             return {
                 ...data,
@@ -28,7 +34,6 @@ const TestQuestions = ({ onNext, data, setData }) => {
     const handleClick = () => {
         onNext();
     };
-
     return (
         <>
             <h2>Multiple Choice Questions</h2>
@@ -61,7 +66,8 @@ const TestQuestions = ({ onNext, data, setData }) => {
                                             event,
                                             'multichoices',
                                             index,
-                                            'possible_answers'
+                                            'possible_answers',
+                                            updatedAnswers
                                         );
                                     }}
                                 />
