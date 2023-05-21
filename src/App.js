@@ -23,7 +23,7 @@ function App() {
             <Route path="/home" element={<Overlay currentChildName="Home" ><LandingPage /></Overlay>} />
             <Route path="/" element={<><LoginPage /> <SignupPage /></>} />
             <Route path="/tests" element={<Overlay currentChildName="Tests"><TestsList /></Overlay>} />
-            <Route path="/flashcards" element={<Overlay currentChildName="Tests"><FlashCardList /></Overlay>} />
+            <Route path="/flashcards/:id" element={<Overlay currentChildName="Tests"><FlashCardList /></Overlay>} />
             <Route path="/practice" element={<Overlay currentChildName="Tests"><PracticeTest /></Overlay>} />
           </Routes>
         </div>
