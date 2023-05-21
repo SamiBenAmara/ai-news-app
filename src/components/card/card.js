@@ -1,11 +1,11 @@
+import React from 'react';
 import './card.css';
-import './flip-animation.css';
 
-function Card({onClick}){
-    return(
+function Card({ onClick, frontText, backText }) {
+    return (
         <div className="card" onClick={onClick}>
-            <div className="card-back">Plug your nose b/c he stinky asf</div>
-            <div className="card-front">What should you do when Alex kim arrives?</div>
+            <div className="card-back">{backText}</div>
+            <div className="card-front">{frontText}</div>
         </div>
     );
 }
