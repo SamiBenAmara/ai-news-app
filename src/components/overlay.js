@@ -9,7 +9,7 @@ const user = {
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-    { name: 'Home', href: '/', current: true },
+    { name: 'Home', href: '/home', current: true },
     { name: 'Generate Questions', href: '/generate', current: false },
     { name: 'Tests', href: '/tests', current: false },
 ]
@@ -23,7 +23,13 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Overlay({ children }) {
+export default function Overlay({ children, currentChildName }) {
+    const updatedNavigation = navigation.map((item) => {
+        if (item.name === currentChildName) {
+            return { ...item, current: true };
+        }
+        return { ...item, current: false };
+    });
     return (
         <>
             <div className="min-h-full">
@@ -42,7 +48,7 @@ export default function Overlay({ children }) {
                                         </div>
                                         <div className="hidden md:block">
                                             <div className="ml-10 flex items-baseline space-x-4">
-                                                {navigation.map((item) => (
+                                                {updatedNavigation.map((item) => (
                                                     <a
                                                         key={item.name}
                                                         href={item.href}
