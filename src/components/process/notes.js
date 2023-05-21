@@ -204,9 +204,8 @@ const NotesInput = ({ onNext, data, setData }) => {
 
     return (
 <div className="bg-gray-700 min-h-screen">
-  <div className="container">
-    <div className="left-content flex flex-col items-start ml-10">
-      <div className="col-span-full">
+  <div className="container mx-auto">
+      <div className="col-span-full items-center">
         <label htmlFor="Notes" className="block text-4xl font-bold leading-6 text-gray-200 pt-20 pb-10">
           Copy your notes
         </label>
@@ -233,12 +232,116 @@ const NotesInput = ({ onNext, data, setData }) => {
           Generate Questions
         </button>
       </div>
-    </div>
-    <div classname="left-content flex flex-col items-start ml-10 borde">
+    <div className="right-content flex flex-col items-start ml-10 bordercolor">
+      <p className="text-white text-2xl my-10">Example Notes</p>
+      <div class="bg-gray-700 border border-gray-800 rounded-lg ">
+        <p className="mb-8 leading-6 text-gray-300 py-5 px-5 text-xs">
+      U11:Integumentary System
+Includes the:
+Skin
+Hair
+Glands
+Sebaceous
+Sudoriferous (sweat)
+ceruminous
+Nails
+Sensory Receptors
+Mechanoreceptors
+Thermoreceptors
+nociceptors
+Skin is 7% of bw and is one of the largest and heaviest organs
+Functions:
+Physical protection
+Mechanical protection
+Keratin in outermost layer
+Prevents dehydration
+Lipid secretions from skin cells via glands
+UV light protection
+Melanin in melanocytes absorbs UV radiation
+Antimicrobial
+Sebaceous glands
+Langerhans cells
+Macrophages
+Immunity
+Langerhan cells very important, they alter the immune system of a pathogen
+Temperature Regulation (evaporation/production of sweat)
+Sweat glands secrete sweat when hot
+Blood vessels dilate in response to heat and constrict in response to cold
+Cutaneous Sensation
+Contains free and encapsulated nerve endings
+Lamellated corpuscle 
+Meissner's Corpuscle
+Ruffini Corpuscle
+Synthesis of Vitamin D precursor
+UV light triggers a reaction for vitamin D production
+Vitamin D increases the absorption of Ca and PO in the intestine
+Structure of the Skin
+There are three layers of the skin:
+Epidermis
+Composed of epithelial tissue as the name suggests
+Dermis
+Mostly connective tissue, but also contains some muscle and nerve tissues.
+The layer under the skin is called the hypodermis (subcutaneous layer)
+Mainly adipose and areolar connective tissue
+Epidermis
+Key characteristics of this layer are:
+Keratinized stratified squamous epithelium
+Avascular
+4 types of cells found
+4 or 5 distinct (strata) layers of cells
+Cell Types
+Keratinocyte
+Produce keratin
+Most numerous of the epidermal cells
+Melanocyte
+Produce melanin pigment
+Melanin transferred to keratinocytes through long cellular processes
+Melanin protects us from UV and is reason for skin colour
+Langerhans
+Helps the immune response
+Is from the bone marrow
+Ingests foreign substances
+Merkel
+Involved in sensing
+Found in the deepest layer
+Forms the touch receptor with sensory neuron
+Within the epidermis, cells are full of keratin. As the cells progressively die, the cells accumulate keratin to the top of the layer and new cells move upwards. And new cells are subsequently produced in the deepest layer.
+Stratum Basale
+Is a single layer of cells
+Mainly composed of active cells in the epidermis
+Mostly keratinocytes, melanocytes and Merkel cells. Keratinocytes are dividing here and replenish layers above
 
+Stratum Spinosum
+Composed of 8-10 layers of cells
+Mostly keratinocytes
+A few langerhan cells are found here as well as cellular projections of melanocytes
+
+Stratum Granulosum
+3-5 layers
+Flat dying keratinocytes
+Undergo nuclear degeneration
+Keratinization occurs at this layer
+
+Stratum Lucidum
+3-6 layers
+This stratum only present in THICK skin
+Clear and flat dead keratinocytes
+Cells contain a lot of keratin
+
+Stratum Corneum
+20-50 layers
+Very thin dead keratinocytes
+Filled with keratin
+The cells are continuously shed
+This stratum is barrier for light, heat, water, chemicals, bacteria
+Friction stimulates production of new cells
+
+        </p>
+        </div>
     </div>
   </div>
 </div>
+
 
 
     );
