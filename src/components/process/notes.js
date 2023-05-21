@@ -203,7 +203,7 @@ const NotesInput = ({ onNext, data, setData }) => {
     };
 
     return (
-        <div className="bg-gray-700 min-h-screen">
+<div className="bg-gray-700 min-h-screen">
   <div className="container">
     <div className="left-content flex flex-col items-start">
       <div className="col-span-full">
@@ -226,16 +226,17 @@ const NotesInput = ({ onNext, data, setData }) => {
           <br />
           Please keep it of medium length! 🔥
         </p>
+        <button
+          className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
+          onClick={handleButtonClick}
+        >
+          Generate Questions
+        </button>
       </div>
-      <button
-        className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
-        onClick={handleButtonClick}
-      >
-        Generate Questions
-      </button>
     </div>
   </div>
 </div>
+
 
     );
 };
