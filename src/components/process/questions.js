@@ -57,17 +57,17 @@ const TestQuestions = ({ onNext, data, setData }) => {
                 <h2 class="text-xl font-bold">Multiple Choice Questions</h2>
                 {data.multichoices.map((question, index) => (
                     <div key={index}>
-                        <h4 class="text-left">Question {index + 1}</h4>
+                        <h4 class="text-left font-bold">Question {index + 1}</h4>
                         <div>
                             <input
                                 type="text"
-                                class="w-full"
+                                class="bg-opacity-25 w-full rounded-lg bg-blue-300 my-1 "
                                 id={`mc-question-${index}`}
                                 value={question.question}
                                 onChange={(event) => handleJsonChange(event, 'multichoices', index, 'question')}
                             />
                         </div>
-
+                        <h4 class="text-left font-bold">Answers:</h4>
                         <div>
                             <div class="bg-gray-200 rounded-lg bg-opacity-25">
                                 {question.possible_answers.map((answer, answerIndex) => (
