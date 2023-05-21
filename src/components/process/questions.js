@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const TestQuestions = ({ onNext, data, setData }) => {
+
+    const navigate = useNavigate();
 
     const handleJsonChange = (
         event,
@@ -31,8 +35,14 @@ const TestQuestions = ({ onNext, data, setData }) => {
     };
 
 
-    const handleClick = () => {
+    const saveTest = async () => {
         onNext();
+
+        axios.post(`http://localhost:5000/notes/notes`, { email: localStorage.getItem('email'), data: data })
+        .then((res) => {
+            console.log(res);
+        })
+        .catch(error => console.log(error));
     };
     return (
         <>
@@ -132,6 +142,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
 
                 <h2 class="text-xl font-bold">Flashcards</h2>
                 {data.flashcards.map((flashcard, index) => (
+                <div>
                     <div key={index}>
                         <h4>Flashcard {index + 1}</h4>
                         <div>
@@ -155,14 +166,25 @@ const TestQuestions = ({ onNext, data, setData }) => {
                             />
                         </div>
                     </div>
-                ))}
-                <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-                    onClick={handleClick}
-                >
-                    Save and Continue
-                </button>
-            </div>
+                    <div>
+                        <label htmlFor={`flashcard-back-${index}`}>Back: </label>
+                        <input
+                            type="text"
+                            class="w-full"
+                            id={`flashcard-back-${index}`}
+                            value={flashcard.back}
+                            onChange={(event) => handleJsonChange(event, 'flashcards', index, 'back')}
+                        />
+                    </div>
+                </div>
+            ))}
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                onClick={saveTest}
+            >
+                Finished?
+            </button>
+        </div>
         </>
     );
 };
