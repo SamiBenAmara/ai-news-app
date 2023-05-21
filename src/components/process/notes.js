@@ -234,7 +234,7 @@ const NotesInput = ({ onNext, data, setData }) => {
         </button>
       </div>
     </div>
-    <div classname="left-content flex flex-col items-start ml-10 bordercolor">
+    <div classname="left-content flex flex-col items-start ml-10 borde">
 
     </div>
   </div>
