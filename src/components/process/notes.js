@@ -205,10 +205,10 @@ const NotesInput = ({ onNext, data, setData }) => {
     return (
 
         <><div className="col-span-full">
-            <label htmlFor="Notes" className="block text-4xl font-bold leading-6 text-gray-900 mb-4">
-                Copy your notes
+            <label htmlFor="Notes" className="block text-4xl font-bold leading-6 text-gray-900 my-12">
+                Copy your notes 
             </label>
-            <div className="mt-2">
+            <div className="my-2">
                 <textarea
                     id="about"
                     name="about"
@@ -218,7 +218,7 @@ const NotesInput = ({ onNext, data, setData }) => {
                     value={text}
                     onChange={handleChange} />
             </div>
-            <p className="mt-3 leading-6 text-gray-600">Insert your notes to generate practice questions.</p>
+            <p className="mb-8 leading-6 text-gray-600">Insert your notes to generate practice questions.</p>
         </div>
             <button
                 className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"

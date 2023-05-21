@@ -27,7 +27,7 @@ export default function Overlay({ children }) {
     return (
         <>
             <div className="min-h-full">
-                <Disclosure as="nav" className="bg-white">
+                <Disclosure as="nav" className="bg-gray-100">
                     {({ open }) => (
                         <>
                             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -62,14 +62,6 @@ export default function Overlay({ children }) {
                                     </div>
                                     <div className="hidden md:block">
                                         <div className="ml-4 flex items-center md:ml-6">
-                                            <button
-                                                type="button"
-                                                className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                            >
-                                                <span className="sr-only">View notifications</span>
-                                                <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                            </button>
-
                                             {/* Profile dropdown */}
                                             <Menu as="div" className="relative ml-3">
                                                 <div>
@@ -174,7 +166,7 @@ export default function Overlay({ children }) {
                     )}
                 </Disclosure>
                 <main>
-                    <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{children}</div>
+                    <div className="">{children}</div>
                 </main>
             </div>
         </>
