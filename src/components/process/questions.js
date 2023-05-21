@@ -35,14 +35,13 @@ const TestQuestions = ({ onNext, data, setData }) => {
         onNext();
     };
     return (
-        <>
+        <div className = "bg-gray-200 min-h-screen">
             <h1 class="text-4xl font-bold mb-4">{data.topic}</h1>
             <h2>Multiple Choice Questions</h2>
             {data.multichoices.map((question, index) => (
                 <div key={index}>
-                    <h4>Question {index + 1}</h4>
+                    <h4 class="text-left">Question {index + 1}</h4>
                     <div>
-                        <label htmlFor={`mc-question-${index}`}>Question: </label>
                         <input
                             type="text"
                             class="w-full"
@@ -51,29 +50,31 @@ const TestQuestions = ({ onNext, data, setData }) => {
                             onChange={(event) => handleJsonChange(event, 'multichoices', index, 'question')}
                         />
                     </div>
+                    
                     <div>
-                        <label htmlFor={`mc-possible-answers-${index}`}>Possible Answers: </label>
-                        {question.possible_answers.map((answer, answerIndex) => (
-                            <div key={answerIndex}>
-                                <input
-                                    type="text"
-                                    id={`mc-possible-answer-${index}-${answerIndex}`}
-                                    class="w-full"
-                                    value={answer}
-                                    onChange={(event) => {
-                                        const updatedAnswers = [...question.possible_answers];
-                                        updatedAnswers[answerIndex] = event.target.value;
-                                        handleJsonChange(
-                                            event,
-                                            'multichoices',
-                                            index,
-                                            'possible_answers',
-                                            updatedAnswers
-                                        );
-                                    }}
-                                />
-                            </div>
-                        ))}
+                        <div class ="bg-gray-200 rounded-lg bg-opacity-25">
+                            {question.possible_answers.map((answer, answerIndex) => (
+                                <div key={answerIndex} className="text-left">
+                                    <input
+                                        type="text"
+                                        id={`mc-possible-answer-${index}-${answerIndex}`}
+                                        class="bg-opacity-25 rounded-lg w-full  my-1 "
+                                        value={answer}
+                                        onChange={(event) => {
+                                            const updatedAnswers = [...question.possible_answers];
+                                            updatedAnswers[answerIndex] = event.target.value;
+                                            handleJsonChange(
+                                                event,
+                                                'multichoices',
+                                                index,
+                                                'possible_answers',
+                                                updatedAnswers
+                                            );
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div>
                         <label htmlFor={`mc-correct-answer-${index}`}>Correct Answer: </label>
@@ -155,7 +156,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
             >
                 Finished?
             </button>
-        </>
+        </div>
     );
 };
 
