@@ -270,7 +270,7 @@ const NotesInput = ({ onNext, data, setData }) => {
     return (
 
         <><div className="col-span-full">
-            <label htmlFor="Notes" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="Notes" className="block text-4xl font-bold leading-6 text-gray-900 mb-4">
                 Copy your notes
             </label>
             <div className="mt-2">
@@ -278,15 +278,15 @@ const NotesInput = ({ onNext, data, setData }) => {
                     id="about"
                     name="about"
                     rows={3}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 w-80"
                     defaultValue={''}
                     value={text}
                     onChange={handleChange} />
             </div>
-            <p className="mt-3 text-sm leading-6 text-gray-600">Insert your notes to generate practice questions.</p>
+            <p className="mt-3 leading-6 text-gray-600">Insert your notes to generate practice questions.</p>
         </div>
             <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
                 onClick={handleButtonClick}
             >
                 Generate Questions
