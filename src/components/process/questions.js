@@ -39,6 +39,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                         <label htmlFor={`mc-question-${index}`}>Question: </label>
                         <input
                             type="text"
+                            class="w-full"
                             id={`mc-question-${index}`}
                             value={question.question}
                             onChange={(event) => handleJsonChange(event, 'multichoices', index, 'question')}
@@ -51,6 +52,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                                 <input
                                     type="text"
                                     id={`mc-possible-answer-${index}-${answerIndex}`}
+                                    class="w-full"
                                     value={answer}
                                     onChange={(event) => {
                                         const updatedAnswers = [...question.possible_answers];
@@ -86,6 +88,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                         <label htmlFor={`tf-question-${index}`}>Question: </label>
                         <input
                             type="text"
+                            class="w-full"
                             id={`tf-question-${index}`}
                             value={question.question}
                             onChange={(event) => handleJsonChange(event, 'truefalse', index, 'question')}
@@ -95,6 +98,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                         <label htmlFor={`tf-correct-answer-${index}`}>Correct Answer: </label>
                         <select
                             id={`tf-correct-answer-${index}`}
+                            class="w-full"
                             value={question.correct_answer.toString()}
                             onChange={(event) =>
                                 handleJsonChange(
@@ -120,6 +124,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                         <label htmlFor={`flashcard-front-${index}`}>Front: </label>
                         <input
                             type="text"
+                            class="w-full"
                             id={`flashcard-front-${index}`}
                             value={flashcard.front}
                             onChange={(event) => handleJsonChange(event, 'flashcards', index, 'front')}
@@ -129,6 +134,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                         <label htmlFor={`flashcard-back-${index}`}>Back: </label>
                         <input
                             type="text"
+                            class="w-full"
                             id={`flashcard-back-${index}`}
                             value={flashcard.back}
                             onChange={(event) => handleJsonChange(event, 'flashcards', index, 'back')}
