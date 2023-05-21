@@ -2,190 +2,123 @@ import React, { useState } from 'react';
 const temptest = {
     "multichoices": [
         {
-            "question": "What percentage of body weight is the skin?",
-            "possible_answers": [
-                "3%",
-                "5%",
-                "7%",
-                "10%"
-            ],
+            "question": "What is the largest organ in the body?",
+            "possible_answers": ["Heart", "Liver", "Skin", "Lungs"],
             "correct_answer": 2
         },
         {
-            "question": "What is the name of the outermost layer of the skin?",
-            "possible_answers": [
-                "Dermis",
-                "Hypodermis",
-                "Epidermis",
-                "Subcutaneous"
-            ],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the function of sebaceous glands?",
-            "possible_answers": [
-                "Producing sweat to cool us down",
-                "Secreting cerumen in the ear canals",
-                "Lubricating and waterproofing skin and hair",
-                "Producing vitamin D"
-            ],
+            "question": "What is the main function of the skin?",
+            "possible_answers": ["To help with thermoregulation", "To produce sweat", "To provide mechanical protection", "All of the above"],
             "correct_answer": 3
         },
         {
-            "question": "What is the name of the sensory receptors in the skin that sense pressure?",
-            "possible_answers": [
-                "Meissner's Corpuscle",
-                "Ruffini Corpuscle",
-                "Lamellated Corpuscle",
-                "Merkel Cell"
-            ],
-            "correct_answer": 0
+            "question": "What is the function of sebaceous glands?",
+            "possible_answers": ["To secrete sweat", "To produce earwax", "To lubricate and waterproof skin and hair", "To produce melanin pigment"],
+            "correct_answer": 2
         },
         {
-            "question": "Which layer of the skin is composed mostly of connective tissue, but also contains some muscle and nerve tissues?",
-            "possible_answers": [
-                "Epidermis",
-                "Dermis",
-                "Hypodermis",
-                "Stratum Corneum"
-            ],
+            "question": "What is the function of Langerhans cells?",
+            "possible_answers": ["To produce keratin", "To help with thermoregulation", "To play a role in the immune response", "To secrete sweat"],
+            "correct_answer": 2
+        },
+        {
+            "question": "What is the function of the reticular layer of the dermis?",
+            "possible_answers": ["To anchor the epidermis to the dermis", "To increase grip of our hands", "To provide thermoregulation", "All of the above"],
             "correct_answer": 1
         },
         {
-            "question": "What is the name of the vitamin that is synthesized in the skin when exposed to UV light?",
-            "possible_answers": [
-                "Vitamin C",
-                "Vitamin B12",
-                "Vitamin D",
-                "Vitamin E"
-            ],
+            "question": "What is the function of eccrine sweat glands?",
+            "possible_answers": ["To produce hair", "To secrete cerumen", "To provide thermoregulation", "To produce oil for the skin"],
             "correct_answer": 2
         },
         {
-            "question": "What type of sweat gland produces hypotonic sweat for thermoregulation?",
-            "possible_answers": [
-                "Eccrine Sweat Gland",
-                "Apocrine Sweat Gland",
-                "Ceruminous Gland",
-                "Sebaceous Gland"
-            ],
+            "question": "What is the pigment produced by melanocytes called?",
+            "possible_answers": ["Keratin", "Sweat", "Sebum", "Melanin"],
+            "correct_answer": 3
+        },
+        {
+            "question": "What type of receptor allows us to feel temperature?",
+            "possible_answers": ["Mechanoreceptor", "Thermoreceptor", "Nociceptor", "Lamellated corpuscle"],
+            "correct_answer": 1
+        },
+        {
+            "question": "What is the function of the stratum corneum?",
+            "possible_answers": ["To provide thermoregulation", "To anchor the epidermis to the dermis", "To produce keratin", "To act as a barrier for light, heat, water, and chemicals"],
+            "correct_answer": 3
+        },
+        {
+            "question": "What is the function of ceruminous glands?",
+            "possible_answers": ["To produce earwax", "To lubricate and waterproof skin and hair", "To provide thermoregulation", "To secrete sweat"],
             "correct_answer": 0
-        },
-        {
-            "question": "What is the name of the hard keratinized mass of cells found on the tips of fingers and toes?",
-            "possible_answers": [
-                "Hair",
-                "Sweat gland",
-                "Nail",
-                "Sebaceous gland"
-            ],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the function of melanin in the skin?",
-            "possible_answers": [
-                "To produce sweat for cooling",
-                "To lubricate and waterproof skin and hair",
-                "To absorb UV radiation",
-                "To produce vitamin D"
-            ],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the name of the layer in the dermis that is composed of loose areolar connective tissue with elastic fibers and functions as an anchor for the epidermis?",
-            "possible_answers": [
-                "Reticular Layer",
-                "Eccrine Layer",
-                "Papillary Layer",
-                "Hypodermis"
-            ],
-            "correct_answer": 2
         }
     ],
+
     "truefalse": [
         {
-            "question": "The skin is one of the smallest organs in the body.",
-            "correct_answer": false
-        },
-        {
-            "question": "The epidermis is composed mainly of connective tissue.",
-            "correct_answer": false
-        },
-        {
-            "question": "Langerhans cells alter the immune system of pathogens.",
+            "question": "The skin is made up of three layers.",
             "correct_answer": true
         },
         {
-            "question": "The dermis is composed of two layers, the papillary layer and the reticular layer.",
+            "question": "UV light triggers vitamin D production in the skin.",
             "correct_answer": true
         },
         {
-            "question": "There are five distinct layers of cells in the epidermis.",
+            "question": "Melanin in melanocytes protects us from bacteria.",
             "correct_answer": false
         },
         {
-            "question": "The main function of the hypodermis is to connect the skin to the underlying fascia.",
+            "question": "The hypodermis is composed of dense irregular connective tissue.",
+            "correct_answer": false
+        },
+        {
+            "question": "The keratinocytes in the stratum basale are dividing and replenish layers above.",
             "correct_answer": true
-        },
-        {
-            "question": "Apocrine sweat glands are found all over the skin surface but especially in our palms, feet, and forehead.",
-            "correct_answer": false
-        },
-        {
-            "question": "The hair functions in protection, sensation, thermoregulation, and communication.",
-            "correct_answer": true
-        },
-        {
-            "question": "UV light triggers a reaction in the skin for the production of Vitamin C.",
-            "correct_answer": false
-        },
-        {
-            "question": "Sebaceous glands produce cerumen in the ear canals.",
-            "correct_answer": false
         }
     ],
+
     "flashcards": [
         {
-            "front": "What is the name of the outermost layer of the skin?",
-            "back": "Epidermis"
+            "front": "What are the three types of cutaneous receptors?",
+            "back": "Mechanoreceptors, Thermoreceptors, Nociceptors"
         },
         {
-            "front": "What is the primary function of sebaceous glands?",
+            "front": "What is the function of sebum?",
             "back": "To lubricate and waterproof skin and hair"
         },
         {
-            "front": "What is the name of the pigmented molecule produced by melanocytes in the skin?",
-            "back": "Melanin"
-        },
-        {
-            "front": "What structure functions as an anchor for the epidermis to the dermis?",
-            "back": "Papillary layer of the dermis"
-        },
-        {
-            "front": "What is the function of sweat glands?",
-            "back": "To cool the body through evaporation of sweat"
-        },
-        {
-            "front": "What is the name of the hard keratinized mass of cells found on the tips of fingers and toes?",
-            "back": "Nail"
-        },
-        {
-            "front": "What is the name of the modified sweat glands found in the ear canals?",
-            "back": "Ceruminous glands"
-        },
-        {
-            "front": "What is the purpose of hair in the skin?",
-            "back": "Protection, sensation, thermoregulation, and communication"
-        },
-        {
-            "front": "What is the name of the sensory receptors in the skin that are involved in touch sensation?",
-            "back": "Merkel Cell"
-        },
-        {
             "front": "What is the function of the hypodermis?",
-            "back": "To connect the skin to the underlying fascia"
+            "back": "To connect the skin to underlying fascia"
+        },
+        {
+            "front": "What is the function of cerumen?",
+            "back": "To help prevent damage to the eardrum"
+        },
+        {
+            "front": "What is the function of eccrine sweat glands?",
+            "back": "To produce hypotonic sweat for thermoregulation"
+        },
+        {
+            "front": "What are the two layers of the dermis?",
+            "back": "Papillary and Reticular"
+        },
+        {
+            "front": "What is the function of Langerhans cells?",
+            "back": "To help with the immune response"
+        },
+        {
+            "front": "What is the function of apocrine sweat glands?",
+            "back": "To produce sweat with organic compounds subject to bacterial decomposition and subsequent smell"
+        },
+        {
+            "front": "What is the function of the stratum basale?",
+            "back": "To mainly compose active cells in the epidermis and replenish layers above"
+        },
+        {
+            "front": "What is the function of reticular layer of the dermis?",
+            "back": "To provide strength, extensibility, and elasticity to the skin"
         }
-    ]
+    ],
+    "topic": "Integumentary System"
 }
 const NotesInput = ({ onNext, data, setData }) => {
     const [text, setText] = useState('');
@@ -205,6 +138,10 @@ const NotesInput = ({ onNext, data, setData }) => {
 
     const handleButtonClick = async () => {
 
+        setData(temptest);
+        onNext();
+        return
+
         const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
             apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -212,58 +149,56 @@ const NotesInput = ({ onNext, data, setData }) => {
 
         const openai = new OpenAIApi(configuration);
 
-        // const completion = await openai.createChatCompletion({
-        //     model: "gpt-3.5-turbo",
-        //     messages: [
-        //         {
-        //             role: "system", content: `
-        //         You are going to write a JSON full of possible exam questions / flash cards with the following notes.
-        //         Do 10 each.
+        const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+                {
+                    role: "system", content: `
+                You are going to write a JSON full of possible exam questions / flash cards with the following notes.
+                Do 10 each.
 
-        //         Consider the following TypeScript Interface for the JSON schema:
+                Consider the following TypeScript Interface for the JSON schema:
 
-        //         interface MultiChoiceQuestion {
-        //             question: string;
-        //             possible_answers: string[];
-        //             correct_answer: int;
-        //         }
+                interface MultiChoiceQuestion {
+                    question: string;
+                    possible_answers: string[];
+                    correct_answer: int;
+                }
 
-        //         interface TrueFalseQuestion {
-        //             question: string;
-        //             correct_answer: boolean;
-        //         }
+                interface TrueFalseQuestion {
+                    question: string;
+                    correct_answer: boolean;
+                }
 
-        //         interface Flashcard {
-        //             front: string;
-        //             back: string;
-        //         }
+                interface Flashcard {
+                    front: string;
+                    back: string;
+                }
 
 
-        //         interface Questions {
-        //            multichoices: MultiChoiceQuestion[];
-        //            truefalse: TrueFalseQuestion[];
-        //            flashcards: Flashcard[];
-        //         }
+                interface Questions {
+                   multichoices: MultiChoiceQuestion[];
+                   truefalse: TrueFalseQuestion[];
+                   flashcards: Flashcard[];
+                   topic: string;
+                }
 
-        //         Write the basics section according to the JSON schema.
-        //         On the response, include only the JSON.
-        //         `},
-        //         { role: "user", content: `Notes: ${text}` },
+                Write the basics section according to the JSON schema.
+                On the response, include only the JSON.
+                `},
+                { role: "user", content: `Notes: ${text}` },
 
-        //     ],
-        // });
+            ],
+        });
 
-        // if (!isJsonString(completion.data.choices[0].message.content)) {
-        //     alert("Not a json sadge, try again")
-        // }
-        // else {
-        //     setData(completion.data.choices[0].message.content);
-        //     onNext();
-        // }
+        if (!isJsonString(completion.data.choices[0].message.content)) {
+            alert("Not a json sadge, try again")
+        }
+        else {
+            setData(completion.data.choices[0].message.content);
+            onNext();
+        }
 
-        // console.log(completion.data.choices[0].message.content);
-
-        setData(temptest);
         onNext();
     };
 
