@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
 // Signup function
 router.post('/signup', async (req, res) => {
-    
+
     const checkUserExists = await User.findOne({ email: req.body.email });
 
     if (checkUserExists) {
@@ -28,14 +28,14 @@ router.post('/signup', async (req, res) => {
     try {
         const newUser = await user.save();
         res.status(201).json(newUser);
-    } catch(error) {
+    } catch (error) {
         res.sendStatus(400).json({ message: error.message });
     }
 });
 
 // Signin function
 router.post('/signin', async (req, res) => {
-    
+
     try {
         const findUser = await User.findOne({ email: req.body.email });
         if (findUser.password === req.body.password) {
@@ -73,6 +73,24 @@ router.post('/notes', async (req, res) => {
     } catch (error) {
         res.status(400).json({ message: "Error adding notes" });
     }
+});
+
+// Get a list of the tests that the user has
+router.post('/tests', async (req, res) => {
+    console.log(req.body)
+    const findUser = await User.findOne({ email: req.body.email });
+
+    if (!findUser) {
+        console.log("User does not exist")
+    }
+
+    try {
+        const tests = findUser.tests;
+        res.send(tests);
+    } catch (error) {
+        console.log(error)
+    }
+
 });
 
 module.exports = router;

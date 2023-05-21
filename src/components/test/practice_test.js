@@ -1,85 +1,9 @@
 import React, { useState } from 'react';
 import WrongAnswerExplanation from './practice_test/wrong';
 
-const temptest = {
-    "multichoices": [
-        {
-            "question": "What is the largest organ in the body?",
-            "possible_answers": ["Heart", "Liver", "Skin", "Lungs"],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the main function of the skin?",
-            "possible_answers": ["To help with thermoregulation", "To produce sweat", "To provide mechanical protection", "All of the above"],
-            "correct_answer": 3
-        },
-        {
-            "question": "What is the function of sebaceous glands?",
-            "possible_answers": ["To secrete sweat", "To produce earwax", "To lubricate and waterproof skin and hair", "To produce melanin pigment"],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the function of Langerhans cells?",
-            "possible_answers": ["To produce keratin", "To help with thermoregulation", "To play a role in the immune response", "To secrete sweat"],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the function of the reticular layer of the dermis?",
-            "possible_answers": ["To anchor the epidermis to the dermis", "To increase grip of our hands", "To provide thermoregulation", "All of the above"],
-            "correct_answer": 1
-        },
-        {
-            "question": "What is the function of eccrine sweat glands?",
-            "possible_answers": ["To produce hair", "To secrete cerumen", "To provide thermoregulation", "To produce oil for the skin"],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the pigment produced by melanocytes called?",
-            "possible_answers": ["Keratin", "Sweat", "Sebum", "Melanin"],
-            "correct_answer": 3
-        },
-        {
-            "question": "What type of receptor allows us to feel temperature?",
-            "possible_answers": ["Mechanoreceptor", "Thermoreceptor", "Nociceptor", "Lamellated corpuscle"],
-            "correct_answer": 1
-        },
-        {
-            "question": "What is the function of the stratum corneum?",
-            "possible_answers": ["To provide thermoregulation", "To anchor the epidermis to the dermis", "To produce keratin", "To act as a barrier for light, heat, water, and chemicals"],
-            "correct_answer": 3
-        },
-        {
-            "question": "What is the function of ceruminous glands?",
-            "possible_answers": ["To produce earwax", "To lubricate and waterproof skin and hair", "To provide thermoregulation", "To secrete sweat"],
-            "correct_answer": 0
-        }
-    ],
+function PracticeTest(test) {
 
-    "truefalse": [
-        {
-            "question": "The skin is made up of three layers.",
-            "correct_answer": true
-        },
-        {
-            "question": "UV light triggers vitamin D production in the skin.",
-            "correct_answer": true
-        },
-        {
-            "question": "Melanin in melanocytes protects us from bacteria.",
-            "correct_answer": false
-        },
-        {
-            "question": "The hypodermis is composed of dense irregular connective tissue.",
-            "correct_answer": false
-        },
-        {
-            "question": "The keratinocytes in the stratum basale are dividing and replenish layers above.",
-            "correct_answer": true
-        }
-    ]
-}
-
-function PracticeTest() {
+    test = test.test;
     const [multichoiceAnswers, setMultichoiceAnswers] = useState([]);
     const [truefalseAnswers, setTruefalseAnswers] = useState([]);
     const [showScore, setShowScore] = useState(false);
@@ -103,14 +27,14 @@ function PracticeTest() {
     const calculateScore = () => {
         let score = 0;
 
-        temptest.multichoices.forEach((question, index) => {
+        test.multichoices.forEach((question, index) => {
             const userAnswer = multichoiceAnswers[index];
             if (userAnswer === question.correct_answer) {
                 score++;
             }
         });
 
-        temptest.truefalse.forEach((question, index) => {
+        test.truefalse.forEach((question, index) => {
             const userAnswer = truefalseAnswers[index];
             if (userAnswer === question.correct_answer) {
                 score++;
@@ -120,7 +44,7 @@ function PracticeTest() {
         return score;
     };
 
-    const totalQuestions = temptest.multichoices.length + temptest.truefalse.length;
+    const totalQuestions = test.multichoices.length + test.truefalse.length;
     const score = calculateScore();
 
     const handleGradeButtonClick = () => {
@@ -131,7 +55,7 @@ function PracticeTest() {
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-2xl font-bold mb-4">Practice Test</h1>
 
-            {temptest.multichoices.map((question, index) => (
+            {test.multichoices.map((question, index) => (
                 <div key={index} className="mb-4">
                     <h3 className="text-lg font-semibold">{question.question}</h3>
                     <ul className="list-disc pl-6">
@@ -153,7 +77,7 @@ function PracticeTest() {
                 </div>
             ))}
 
-            {temptest.truefalse.map((question, index) => (
+            {test.truefalse.map((question, index) => (
                 <div key={index} className="mb-4">
                     <h3 className="text-lg font-semibold">{question.question}</h3>
                     <div className="flex items-center mb-2">
@@ -194,7 +118,7 @@ function PracticeTest() {
 
                     <h3 className="text-lg font-semibold">Changed Answers:</h3>
 
-                    {temptest.multichoices.map((question, index) => {
+                    {test.multichoices.map((question, index) => {
                         const userAnswer = multichoiceAnswers[index];
                         if (userAnswer !== undefined && userAnswer !== question.correct_answer) {
                             return (
@@ -210,8 +134,7 @@ function PracticeTest() {
                         return null;
                     })}
 
-
-                    {temptest.truefalse.map((question, index) => {
+                    {test.truefalse.map((question, index) => {
                         const userAnswer = truefalseAnswers[index];
                         if (userAnswer !== undefined && userAnswer !== question.correct_answer) {
                             return (
