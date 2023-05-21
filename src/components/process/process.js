@@ -28,7 +28,7 @@ const NotesProcess = () => {
 
   return (
     <div>
-      <h1>Notes in take lol</h1>
+      <img src="logo.png" alt="Description of the image"></img>
       {currentComponent}
     </div>
   );
