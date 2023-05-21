@@ -22,7 +22,7 @@ const NotesProcess = () => {
       currentComponent = <TestQuestions onNext={handleNext} data={data} setData={setData} />;
       break;
     case 3:
-      currentComponent = <FinishedNotes />;
+      currentComponent = <FinishedNotes onNext={handleNext} data={data} setData={setData} />;
       break;
     default:
       currentComponent = null;

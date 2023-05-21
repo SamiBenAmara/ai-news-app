@@ -1,105 +1,189 @@
 import React, { useState } from 'react';
 const temptest = {
-    "questions": [
+    "multichoices": [
         {
-            "question": "Which of the following is NOT part of the integumentary system?",
+            "question": "What percentage of body weight is the skin?",
             "possible_answers": [
-                "Skin",
-                "Hair",
-                "Glands",
-                "Muscles"
+                "3%",
+                "5%",
+                "7%",
+                "10%"
+            ],
+            "correct_answer": 2
+        },
+        {
+            "question": "What is the name of the outermost layer of the skin?",
+            "possible_answers": [
+                "Dermis",
+                "Hypodermis",
+                "Epidermis",
+                "Subcutaneous"
+            ],
+            "correct_answer": 2
+        },
+        {
+            "question": "What is the function of sebaceous glands?",
+            "possible_answers": [
+                "Producing sweat to cool us down",
+                "Secreting cerumen in the ear canals",
+                "Lubricating and waterproofing skin and hair",
+                "Producing vitamin D"
             ],
             "correct_answer": 3
         },
         {
-            "question": "What is the function of sebaceous glands in the integumentary system?",
+            "question": "What is the name of the sensory receptors in the skin that sense pressure?",
             "possible_answers": [
-                "Production of sweat",
-                "Protection against UV radiation",
-                "Production of oil for skin and hair lubrication",
-                "Secretion of cerumen in the ear canals"
-            ],
-            "correct_answer": 2
-        },
-        {
-            "question": "Which of the following is a function of the epidermis?",
-            "possible_answers": [
-                "Production of melanin",
-                "Synthesis of vitamin D",
-                "Temperature regulation",
-                "Anchoring the epidermis to the dermis"
+                "Meissner's Corpuscle",
+                "Ruffini Corpuscle",
+                "Lamellated Corpuscle",
+                "Merkel Cell"
             ],
             "correct_answer": 0
         },
         {
-            "question": "What is the main component of the dermis?",
-            "possible_answers": [
-                "Adipose tissue",
-                "Connective tissue",
-                "Muscle tissue",
-                "Nerve tissue"
-            ],
-            "correct_answer": 1
-        },
-        {
-            "question": "What is the purpose of melanin in the integumentary system?",
-            "possible_answers": [
-                "Protection against UV radiation",
-                "Production of sweat",
-                "Enhancement of tactile sensation",
-                "Production of keratin"
-            ],
-            "correct_answer": 0
-        },
-        {
-            "question": "Which layer of the skin contains the hair follicles and sweat glands?",
+            "question": "Which layer of the skin is composed mostly of connective tissue, but also contains some muscle and nerve tissues?",
             "possible_answers": [
                 "Epidermis",
                 "Dermis",
                 "Hypodermis",
-                "Stratum corneum"
+                "Stratum Corneum"
             ],
             "correct_answer": 1
         },
         {
-            "question": "What is the function of eccrine sweat glands?",
+            "question": "What is the name of the vitamin that is synthesized in the skin when exposed to UV light?",
             "possible_answers": [
-                "Production of cerumen",
-                "Secretion of oil for skin lubrication",
-                "Production of hypotonic sweat for thermoregulation",
-                "Protection against UV radiation"
+                "Vitamin C",
+                "Vitamin B12",
+                "Vitamin D",
+                "Vitamin E"
             ],
             "correct_answer": 2
         },
         {
-            "question": "Which type of sensory receptor is responsible for detecting temperature changes?",
+            "question": "What type of sweat gland produces hypotonic sweat for thermoregulation?",
             "possible_answers": [
-                "Mechanoreceptors",
-                "Thermoreceptors",
-                "Nociceptors",
-                "Chemoreceptors"
-            ],
-            "correct_answer": 1
-        },
-        {
-            "question": "What is the role of Langerhans cells in the integumentary system?",
-            "possible_answers": [
-                "Production of melanin",
-                "Enhancement of tactile sensation",
-                "Protection against pathogens",
-                "Synthesis of vitamin D"
-            ],
-            "correct_answer": 2
-        },
-        {
-            "question": "Which layer of the epidermis contains actively dividing cells?",
-            "possible_answers": [
-                "Stratum basale",
-                "Stratum spinosum",
-                "Stratum granulosum",
-                "Stratum corneum"
+                "Eccrine Sweat Gland",
+                "Apocrine Sweat Gland",
+                "Ceruminous Gland",
+                "Sebaceous Gland"
             ],
             "correct_answer": 0
+        },
+        {
+            "question": "What is the name of the hard keratinized mass of cells found on the tips of fingers and toes?",
+            "possible_answers": [
+                "Hair",
+                "Sweat gland",
+                "Nail",
+                "Sebaceous gland"
+            ],
+            "correct_answer": 2
+        },
+        {
+            "question": "What is the function of melanin in the skin?",
+            "possible_answers": [
+                "To produce sweat for cooling",
+                "To lubricate and waterproof skin and hair",
+                "To absorb UV radiation",
+                "To produce vitamin D"
+            ],
+            "correct_answer": 2
+        },
+        {
+            "question": "What is the name of the layer in the dermis that is composed of loose areolar connective tissue with elastic fibers and functions as an anchor for the epidermis?",
+            "possible_answers": [
+                "Reticular Layer",
+                "Eccrine Layer",
+                "Papillary Layer",
+                "Hypodermis"
+            ],
+            "correct_answer": 2
+        }
+    ],
+    "truefalse": [
+        {
+            "question": "The skin is one of the smallest organs in the body.",
+            "correct_answer": false
+        },
+        {
+            "question": "The epidermis is composed mainly of connective tissue.",
+            "correct_answer": false
+        },
+        {
+            "question": "Langerhans cells alter the immune system of pathogens.",
+            "correct_answer": true
+        },
+        {
+            "question": "The dermis is composed of two layers, the papillary layer and the reticular layer.",
+            "correct_answer": true
+        },
+        {
+            "question": "There are five distinct layers of cells in the epidermis.",
+            "correct_answer": false
+        },
+        {
+            "question": "The main function of the hypodermis is to connect the skin to the underlying fascia.",
+            "correct_answer": true
+        },
+        {
+            "question": "Apocrine sweat glands are found all over the skin surface but especially in our palms, feet, and forehead.",
+            "correct_answer": false
+        },
+        {
+            "question": "The hair functions in protection, sensation, thermoregulation, and communication.",
+            "correct_answer": true
+        },
+        {
+            "question": "UV light triggers a reaction in the skin for the production of Vitamin C.",
+            "correct_answer": false
+        },
+        {
+            "question": "Sebaceous glands produce cerumen in the ear canals.",
+            "correct_answer": false
+        }
+    ],
+    "flashcards": [
+        {
+            "front": "What is the name of the outermost layer of the skin?",
+            "back": "Epidermis"
+        },
+        {
+            "front": "What is the primary function of sebaceous glands?",
+            "back": "To lubricate and waterproof skin and hair"
+        },
+        {
+            "front": "What is the name of the pigmented molecule produced by melanocytes in the skin?",
+            "back": "Melanin"
+        },
+        {
+            "front": "What structure functions as an anchor for the epidermis to the dermis?",
+            "back": "Papillary layer of the dermis"
+        },
+        {
+            "front": "What is the function of sweat glands?",
+            "back": "To cool the body through evaporation of sweat"
+        },
+        {
+            "front": "What is the name of the hard keratinized mass of cells found on the tips of fingers and toes?",
+            "back": "Nail"
+        },
+        {
+            "front": "What is the name of the modified sweat glands found in the ear canals?",
+            "back": "Ceruminous glands"
+        },
+        {
+            "front": "What is the purpose of hair in the skin?",
+            "back": "Protection, sensation, thermoregulation, and communication"
+        },
+        {
+            "front": "What is the name of the sensory receptors in the skin that are involved in touch sensation?",
+            "back": "Merkel Cell"
+        },
+        {
+            "front": "What is the function of the hypodermis?",
+            "back": "To connect the skin to the underlying fascia"
         }
     ]
 }
@@ -132,9 +216,11 @@ const NotesInput = ({ onNext, data, setData }) => {
         //     model: "gpt-3.5-turbo",
         //     messages: [
         //         {
-        //             role: "system", content: `You are going to write a JSON full of possible exam questions with the following notes.
+        //             role: "system", content: `
+        //         You are going to write a JSON full of possible exam questions / flash cards with the following notes.
+        //         Do 10 each.
 
-        //         Now consider the following TypeScript Interface for the JSON schema:
+        //         Consider the following TypeScript Interface for the JSON schema:
 
         //         interface MultiChoiceQuestion {
         //             question: string;
@@ -142,17 +228,31 @@ const NotesInput = ({ onNext, data, setData }) => {
         //             correct_answer: int;
         //         }
 
-        //         interface MultiChoiceQuestions {
-        //            questions: MultiChoiceQuestion[];
+        //         interface TrueFalseQuestion {
+        //             question: string;
+        //             correct_answer: boolean;
         //         }
 
-        //         Write the basics section according to the Message schema.
+        //         interface Flashcard {
+        //             front: string;
+        //             back: string;
+        //         }
+
+
+        //         interface Questions {
+        //            multichoices: MultiChoiceQuestion[];
+        //            truefalse: TrueFalseQuestion[];
+        //            flashcards: Flashcard[];
+        //         }
+
+        //         Write the basics section according to the JSON schema.
         //         On the response, include only the JSON.
         //         `},
         //         { role: "user", content: `Notes: ${text}` },
 
         //     ],
         // });
+
         // if (!isJsonString(completion.data.choices[0].message.content)) {
         //     alert("Not a json sadge, try again")
         // }
@@ -160,7 +260,9 @@ const NotesInput = ({ onNext, data, setData }) => {
         //     setData(completion.data.choices[0].message.content);
         //     onNext();
         // }
-        //
+
+        // console.log(completion.data.choices[0].message.content);
+
         setData(temptest);
         onNext();
     };
