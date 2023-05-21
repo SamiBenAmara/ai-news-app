@@ -225,18 +225,6 @@ const NotesInput = ({ onNext, data, setData }) => {
                 <p className="mb-8 leading-6 text-gray-300 py-10">Insert your notes to generate practice questions.<br /> Please keep it of medium length! 🔥</p>
             </div>
                 <Transition
-                    show={isLoading}
-                    enter="transition-opacity duration-200"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="transition-opacity duration-200"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                    className="absolute inset-0 flex items-center justify-center"
-                >
-                    <div className="w-6 h-6 border-t-2 border-b-2 border-[#00adb5] rounded-full animate-spin" />
-                </Transition>
-                <Transition
                     show={!isLoading}
                     enter="transition-opacity duration-200"
                     enterFrom="opacity-0"
@@ -251,7 +239,9 @@ const NotesInput = ({ onNext, data, setData }) => {
                     >
                         Generate Questions
                     </button>
-                </Transition></>
+                </Transition>
+                {isLoading && <p>Thinking 🤔...</p>}
+            </>
         </div>
     );
 };
