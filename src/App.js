@@ -6,6 +6,7 @@ import Overlay from './components/overlay';
 import LandingPage from './pages/landing-page';
 import TestsList from './components/test/testslist';
 import FlashCardList from './components/test/flashcards';
+import PracticeTest from './components/test/practice_test';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Overlay><LandingPage /></Overlay>} />
           <Route path="/tests" element={<Overlay><TestsList /></Overlay>} />
           <Route path="/flashcards" element={<Overlay><FlashCardList /></Overlay>} />
+          <Route path="/practice" element={<Overlay><PracticeTest /></Overlay>} />
         </Routes>
       </div>
     </Router>
