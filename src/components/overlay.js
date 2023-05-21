@@ -30,8 +30,6 @@ export default function Overlay({ children, currentChildName }) {
         }
         return { ...item, current: false };
     });
-    console.log(currentChildName);
-    console.log(updatedNavigation);
     return (
         <>
             <div className="min-h-full">

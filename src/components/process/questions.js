@@ -39,11 +39,12 @@ const TestQuestions = ({ onNext, data, setData }) => {
         onNext();
 
         axios.post(`http://localhost:5000/notes/notes`, { email: localStorage.getItem('email'), data: data })
-        .then((res) => {
-            console.log(res);
-        })
-        .catch(error => console.log(error));
+            .then((res) => {
+                console.log(res);
+            })
+            .catch(error => console.log(error));
     };
+
     return (
         <>
             <div className="bg-gray-200 min-h-screen p-5 mx-80">
@@ -56,17 +57,17 @@ const TestQuestions = ({ onNext, data, setData }) => {
                 <h2 class="text-xl font-bold">Multiple Choice Questions</h2>
                 {data.multichoices.map((question, index) => (
                     <div key={index}>
-                        <h4 class="text-left">Question {index + 1}</h4>
+                        <h4 class="text-left font-bold">Question {index + 1}</h4>
                         <div>
                             <input
                                 type="text"
-                                class="w-full"
+                                class="bg-opacity-25 w-full rounded-lg bg-blue-300 my-1 "
                                 id={`mc-question-${index}`}
                                 value={question.question}
                                 onChange={(event) => handleJsonChange(event, 'multichoices', index, 'question')}
                             />
                         </div>
-
+                        <h4 class="text-left font-bold">Answers:</h4>
                         <div>
                             <div class="bg-gray-200 rounded-lg bg-opacity-25">
                                 {question.possible_answers.map((answer, answerIndex) => (
@@ -142,49 +143,39 @@ const TestQuestions = ({ onNext, data, setData }) => {
 
                 <h2 class="text-xl font-bold">Flashcards</h2>
                 {data.flashcards.map((flashcard, index) => (
-                <div>
-                    <div key={index}>
-                        <h4>Flashcard {index + 1}</h4>
-                        <div>
-                            <label htmlFor={`flashcard-front-${index}`}>Front: </label>
-                            <input
-                                type="text"
-                                class="w-full"
-                                id={`flashcard-front-${index}`}
-                                value={flashcard.front}
-                                onChange={(event) => handleJsonChange(event, 'flashcards', index, 'front')}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor={`flashcard-back-${index}`}>Back: </label>
-                            <input
-                                type="text"
-                                class="w-full"
-                                id={`flashcard-back-${index}`}
-                                value={flashcard.back}
-                                onChange={(event) => handleJsonChange(event, 'flashcards', index, 'back')}
-                            />
-                        </div>
-                    </div>
                     <div>
-                        <label htmlFor={`flashcard-back-${index}`}>Back: </label>
-                        <input
-                            type="text"
-                            class="w-full"
-                            id={`flashcard-back-${index}`}
-                            value={flashcard.back}
-                            onChange={(event) => handleJsonChange(event, 'flashcards', index, 'back')}
-                        />
+                        <div key={index}>
+                            <h4>Flashcard {index + 1}</h4>
+                            <div>
+                                <label htmlFor={`flashcard-front-${index}`}>Front: </label>
+                                <input
+                                    type="text"
+                                    class="w-full"
+                                    id={`flashcard-front-${index}`}
+                                    value={flashcard.front}
+                                    onChange={(event) => handleJsonChange(event, 'flashcards', index, 'front')}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor={`flashcard-back-${index}`}>Back: </label>
+                                <input
+                                    type="text"
+                                    class="w-full"
+                                    id={`flashcard-back-${index}`}
+                                    value={flashcard.back}
+                                    onChange={(event) => handleJsonChange(event, 'flashcards', index, 'back')}
+                                />
+                            </div>
+                        </div>
                     </div>
-                </div>
-            ))}
-            <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-                onClick={saveTest}
-            >
-                Finished?
-            </button>
-        </div>
+                ))}
+                <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                    onClick={saveTest}
+                >
+                    Save and continue
+                </button>
+            </div>
         </>
     );
 };

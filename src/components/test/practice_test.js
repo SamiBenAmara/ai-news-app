@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import WrongAnswerExplanation from './practice_test/wrong';
 
 function PracticeTest(test) {
 
@@ -122,9 +123,11 @@ function PracticeTest(test) {
                         if (userAnswer !== undefined && userAnswer !== question.correct_answer) {
                             return (
                                 <div key={index} className="mb-4">
-                                    <p>{question.question}</p>
-                                    <p>Selected Answer: {question.possible_answers[userAnswer]}</p>
-                                    <p>Correct Answer: {question.possible_answers[question.correct_answer]}</p>
+                                    <WrongAnswerExplanation
+                                        question={question.question}
+                                        userAnswer={question.possible_answers[userAnswer]}
+                                        correctAnswer={question.possible_answers[question.correct_answer]}
+                                    />
                                 </div>
                             );
                         }
@@ -136,9 +139,11 @@ function PracticeTest(test) {
                         if (userAnswer !== undefined && userAnswer !== question.correct_answer) {
                             return (
                                 <div key={index} className="mb-4">
-                                    <p>{question.question}</p>
-                                    <p>Selected Answer: {userAnswer.toString()}</p>
-                                    <p>Correct Answer: {question.correct_answer.toString()}</p>
+                                    <WrongAnswerExplanation
+                                        question={question.question}
+                                        userAnswer={userAnswer.toString()}
+                                        correctAnswer={question.correct_answer.toString()}
+                                    />
                                 </div>
                             );
                         }

@@ -1,127 +1,179 @@
 import React, { useState } from 'react';
+import { Transition } from '@headlessui/react';
+
 const temptest = {
     "multichoices": [
         {
-            "question": "What is the largest organ in the body?",
-            "possible_answers": ["Heart", "Liver", "Skin", "Lungs"],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the main function of the skin?",
-            "possible_answers": ["To help with thermoregulation", "To produce sweat", "To provide mechanical protection", "All of the above"],
+            "question": "What is the function of the integumentary system?",
+            "possible_answers": [
+                "Physical and mechanical protection",
+                "UV light protection",
+                "Antimicrobial defense",
+                "All of the above"
+            ],
             "correct_answer": 3
         },
         {
-            "question": "What is the function of sebaceous glands?",
-            "possible_answers": ["To secrete sweat", "To produce earwax", "To lubricate and waterproof skin and hair", "To produce melanin pigment"],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the function of Langerhans cells?",
-            "possible_answers": ["To produce keratin", "To help with thermoregulation", "To play a role in the immune response", "To secrete sweat"],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the function of the reticular layer of the dermis?",
-            "possible_answers": ["To anchor the epidermis to the dermis", "To increase grip of our hands", "To provide thermoregulation", "All of the above"],
+            "question": "Which type of receptor in the skin is responsible for sensing temperature?",
+            "possible_answers": [
+                "Mechanoreceptor",
+                "Thermoreceptor",
+                "Nociceptor",
+                "Lamellated corpuscle"
+            ],
             "correct_answer": 1
         },
         {
-            "question": "What is the function of eccrine sweat glands?",
-            "possible_answers": ["To produce hair", "To secrete cerumen", "To provide thermoregulation", "To produce oil for the skin"],
-            "correct_answer": 2
-        },
-        {
-            "question": "What is the pigment produced by melanocytes called?",
-            "possible_answers": ["Keratin", "Sweat", "Sebum", "Melanin"],
+            "question": "Which layer of the skin is responsible for synthesis of vitamin D?",
+            "possible_answers": [
+                "Stratum Basale",
+                "Stratum Spinosum",
+                "Stratum Granulosum",
+                "Epidermis"
+            ],
             "correct_answer": 3
         },
         {
-            "question": "What type of receptor allows us to feel temperature?",
-            "possible_answers": ["Mechanoreceptor", "Thermoreceptor", "Nociceptor", "Lamellated corpuscle"],
+            "question": "What is the main function of sebaceous glands?",
+            "possible_answers": [
+                "Produce hypotonic sweat for thermoregulation",
+                "Produce oil to lubricate and waterproof skin and hair",
+                "Modified sweat glands in ear canals",
+                "Produce cerumen to protect the eardrum"
+            ],
             "correct_answer": 1
         },
         {
-            "question": "What is the function of the stratum corneum?",
-            "possible_answers": ["To provide thermoregulation", "To anchor the epidermis to the dermis", "To produce keratin", "To act as a barrier for light, heat, water, and chemicals"],
+            "question": "Which type of sweat gland is associated with hair follicles and produces sweat that is thicker and subject to bacterial decomposition?",
+            "possible_answers": [
+                "Eccrine sweat",
+                "Apocrine sweat",
+                "Ceruminous",
+                "Sebaceous"
+            ],
+            "correct_answer": 2
+        },
+        {
+            "question": "What is the purpose of melanin?",
+            "possible_answers": [
+                "To absorb UV radiation",
+                "To help with mechanical protection",
+                "To produce vitamin D",
+                "To make sweat thicker"
+            ],
+            "correct_answer": 1
+        },
+        {
+            "question": "Which layer of the skin is primarily composed of keratinocytes?",
+            "possible_answers": [
+                "Stratum Basale",
+                "Stratum Spinosum",
+                "Stratum Granulosum",
+                "Epidermis"
+            ],
             "correct_answer": 3
         },
         {
-            "question": "What is the function of ceruminous glands?",
-            "possible_answers": ["To produce earwax", "To lubricate and waterproof skin and hair", "To provide thermoregulation", "To secrete sweat"],
+            "question": "What is the main function of the papillary layer of the dermis?",
+            "possible_answers": [
+                "Provides strength, extensibility, and elasticity to the skin",
+                "Functions as an anchor for the epidermis to the dermis",
+                "Produces sweat to cool us down",
+                "Connects the skin to the underlying fascia"
+            ],
+            "correct_answer": 1
+        },
+        {
+            "question": "Which type of receptor in the skin is responsible for sensing touch?",
+            "possible_answers": [
+                "Mechanoreceptor",
+                "Thermoreceptor",
+                "Nociceptor",
+                "Lamellated corpuscle"
+            ],
             "correct_answer": 0
+        },
+        {
+            "question": "What is the structure responsible for producing earwax?",
+            "possible_answers": [
+                "Melanocyte",
+                "Sebaceous gland",
+                "Ceruminous gland",
+                "Sweat gland"
+            ],
+            "correct_answer": 2
         }
     ],
-
     "truefalse": [
         {
-            "question": "The skin is made up of three layers.",
+            "question": "The skin is one of the largest and heaviest organs, making up approximately 7% of body weight.",
             "correct_answer": true
         },
         {
-            "question": "UV light triggers vitamin D production in the skin.",
+            "question": "Langerhans cells play an important role in the immune response by eating foreign substances.",
             "correct_answer": true
         },
         {
-            "question": "Melanin in melanocytes protects us from bacteria.",
+            "question": "The hypodermis is composed mainly of dense irregular connective tissue containing collagen and elastic fibers.",
             "correct_answer": false
         },
         {
-            "question": "The hypodermis is composed of dense irregular connective tissue.",
-            "correct_answer": false
+            "question": "Hair is composed of dead keratinocytes and functions in protection, sensation, thermoregulation, and communication.",
+            "correct_answer": true
         },
         {
-            "question": "The keratinocytes in the stratum basale are dividing and replenish layers above.",
+            "question": "Sweat glands produce sweat to cool us down and are found all over the body, including in the palms, feet, and forehead.",
             "correct_answer": true
         }
     ],
-
     "flashcards": [
         {
-            "front": "What are the three types of cutaneous receptors?",
-            "back": "Mechanoreceptors, Thermoreceptors, Nociceptors"
+            "front": "What is the function of sebaceous glands?",
+            "back": "Produce oil to lubricate and waterproof skin and hair."
         },
         {
-            "front": "What is the function of sebum?",
-            "back": "To lubricate and waterproof skin and hair"
+            "front": "What type of sweat gland produces hypotonic sweat for thermoregulation?",
+            "back": "Eccrine sweat."
         },
         {
-            "front": "What is the function of the hypodermis?",
-            "back": "To connect the skin to underlying fascia"
+            "front": "What is the function of the papillary layer of the dermis?",
+            "back": "Functions as an anchor for the epidermis to the dermis and provides strength, extensibility, and elasticity to the skin."
         },
         {
-            "front": "What is the function of cerumen?",
-            "back": "To help prevent damage to the eardrum"
+            "front": "What type of receptor in the skin is responsible for sensing touch?",
+            "back": "Mechanoreceptor."
         },
         {
-            "front": "What is the function of eccrine sweat glands?",
-            "back": "To produce hypotonic sweat for thermoregulation"
+            "front": "What is the purpose of melanin?",
+            "back": "To absorb UV radiation."
         },
         {
-            "front": "What are the two layers of the dermis?",
-            "back": "Papillary and Reticular"
+            "front": "What layer of the skin is primarily composed of active cells in the epidermis, such as keratinocytes, melanocytes, and Merkel cells?",
+            "back": "Stratum Basale."
         },
         {
-            "front": "What is the function of Langerhans cells?",
-            "back": "To help with the immune response"
+            "front": "What is the function of ceruminous glands?",
+            "back": "Produces cerumen to protect the eardrum."
         },
         {
-            "front": "What is the function of apocrine sweat glands?",
-            "back": "To produce sweat with organic compounds subject to bacterial decomposition and subsequent smell"
+            "front": "What layer of the skin is responsible for keratinization?",
+            "back": "Stratum Granulosum."
         },
         {
-            "front": "What is the function of the stratum basale?",
-            "back": "To mainly compose active cells in the epidermis and replenish layers above"
+            "front": "What is the function of hair?",
+            "back": "Functions in protection, sensation, thermoregulation, and communication."
         },
         {
-            "front": "What is the function of reticular layer of the dermis?",
-            "back": "To provide strength, extensibility, and elasticity to the skin"
+            "front": "What type of receptor in the skin is responsible for sensing temperature?",
+            "back": "Thermoreceptor."
         }
     ],
     "topic": "Integumentary System"
 }
+
 const NotesInput = ({ onNext, data, setData }) => {
     const [text, setText] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (event) => {
         setText(event.target.value);
@@ -137,6 +189,7 @@ const NotesInput = ({ onNext, data, setData }) => {
     }
 
     const handleButtonClick = async () => {
+        setIsLoading(true);
 
         setData(temptest);
         onNext();
@@ -190,15 +243,15 @@ const NotesInput = ({ onNext, data, setData }) => {
 
             ],
         });
-
+        console.log(completion.data);
+        console.log(completion.data.choices[0].message.content);
         if (!isJsonString(completion.data.choices[0].message.content)) {
             alert("Not a json sadge, try again")
         }
         else {
-            setData(completion.data.choices[0].message.content);
-            onNext();
+            setData(JSON.parse(completion.data.choices[0].message.content));
         }
-
+        setIsLoading(false);
         onNext();
     };
 
@@ -220,12 +273,24 @@ const NotesInput = ({ onNext, data, setData }) => {
                 </div>
                 <p className="mb-8 leading-6 text-gray-300 py-10">Insert your notes to generate practice questions.<br /> Please keep it of medium length! 🔥</p>
             </div>
-                <button
-                    className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
-                    onClick={handleButtonClick}
+                <Transition
+                    show={!isLoading}
+                    enter="transition-opacity duration-200"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="transition-opacity duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
                 >
-                    Generate Questions
-                </button></>
+                    <button
+                        className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
+                        onClick={handleButtonClick}
+                    >
+                        Generate Questions
+                    </button>
+                </Transition>
+                {isLoading && <p className='text-white font-bold'>Thinking 🤔...</p>}
+            </>
         </div>
     );
 };
