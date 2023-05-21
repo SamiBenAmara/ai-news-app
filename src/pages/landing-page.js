@@ -10,7 +10,7 @@ const LandingPage = () => {
                     Unleash the power of your notes. Transform your learning journey with intelligent flashcards and practice tests, 
                     powered by ChatGPT. Take your knowledge to new heights, one note at a time.
                     </p>
-                    <button className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-8 px-16 rounded-lg">
+                    <button className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-6 px-14 rounded-lg text-2xl">
                         Get Started
                     </button>
                 </div>
