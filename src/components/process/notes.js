@@ -249,7 +249,7 @@ const NotesInput = ({ onNext, data, setData }) => {
             alert("Not a json sadge, try again")
         }
         else {
-            setData(completion.data.choices[0].message.content);
+            setData(JSON.parse(completion.data.choices[0].message.content));
         }
         setIsLoading(false);
         onNext();

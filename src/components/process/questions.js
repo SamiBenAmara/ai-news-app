@@ -44,8 +44,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
             })
             .catch(error => console.log(error));
     };
-    console.log(data);
-    console.log(data.multichoices);
+
     return (
         <>
             <div className="bg-gray-200 min-h-screen p-5 mx-80">
@@ -167,16 +166,6 @@ const TestQuestions = ({ onNext, data, setData }) => {
                                     onChange={(event) => handleJsonChange(event, 'flashcards', index, 'back')}
                                 />
                             </div>
-                        </div>
-                        <div>
-                            <label htmlFor={`flashcard-back-${index}`}>Back: </label>
-                            <input
-                                type="text"
-                                class="w-full"
-                                id={`flashcard-back-${index}`}
-                                value={flashcard.back}
-                                onChange={(event) => handleJsonChange(event, 'flashcards', index, 'back')}
-                            />
                         </div>
                     </div>
                 ))}
