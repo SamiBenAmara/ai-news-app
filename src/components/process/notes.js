@@ -128,40 +128,57 @@ const NotesInput = ({ onNext, data, setData }) => {
 
         const openai = new OpenAIApi(configuration);
 
-        // const completion = await openai.createChatCompletion({
-        //     model: "gpt-3.5-turbo",
-        //     messages: [
-        //         {
-        //             role: "system", content: `You are going to write a JSON full of possible exam questions with the following notes.
+        const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+                {
+                    role: "system", content: `
+                You are going to write a JSON full of possible exam questions / flash cards with the following notes.
+                Do 10 each.
 
-        //         Now consider the following TypeScript Interface for the JSON schema:
+                Consider the following TypeScript Interface for the JSON schema:
 
-        //         interface MultiChoiceQuestion {
-        //             question: string;
-        //             possible_answers: string[];
-        //             correct_answer: int;
-        //         }
+                interface MultiChoiceQuestion {
+                    question: string;
+                    possible_answers: string[];
+                    correct_answer: int;
+                }
 
-        //         interface MultiChoiceQuestions {
-        //            questions: MultiChoiceQuestion[];
-        //         }
+                interface TrueFalseQuestion {
+                    question: string;
+                    correct_answer: boolean;
+                }
 
-        //         Write the basics section according to the Message schema.
-        //         On the response, include only the JSON.
-        //         `},
-        //         { role: "user", content: `Notes: ${text}` },
+                interface Flashcard {
+                    front: string;
+                    back: string;
+                }
 
-        //     ],
-        // });
-        // if (!isJsonString(completion.data.choices[0].message.content)) {
-        //     alert("Not a json sadge, try again")
-        // }
-        // else {
-        //     setData(completion.data.choices[0].message.content);
-        //     onNext();
-        // }
-        //
-        setData(temptest);
+
+                interface Questions {
+                   multichoices: MultiChoiceQuestion[];
+                   truefalse: TrueFalseQuestion[];
+                   flashcards: Flashcard[];
+                }
+
+                Write the basics section according to the JSON schema.
+                On the response, include only the JSON.
+                `},
+                { role: "user", content: `Notes: ${text}` },
+
+            ],
+        });
+        if (!isJsonString(completion.data.choices[0].message.content)) {
+            alert("Not a json sadge, try again")
+        }
+        else {
+            setData(completion.data.choices[0].message.content);
+            onNext();
+        }
+
+        console.log(completion.data.choices[0].message.content);
+
+        // setData(temptest);
         onNext();
     };
 
