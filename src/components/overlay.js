@@ -10,8 +10,8 @@ const user = {
 }
 const navigation = [
     { name: 'Home', href: '/', current: true },
-    { name: 'Create Notes', href: '/notes', current: false },
-    { name: 'Tests', href: '#', current: false },
+    { name: 'Generate Questions', href: '/generate', current: false },
+    { name: 'Tests', href: '/tests', current: false },
 ]
 const userNavigation = [
     { name: 'Your Profile', href: '#' },
