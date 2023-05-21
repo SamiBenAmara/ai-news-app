@@ -1,6 +1,5 @@
 const express = require('express');
 const User = require('../models/user');
-const Test = require('../models/test');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -61,19 +60,12 @@ router.post('/notes', async (req, res) => {
 
     console.log(req.body);
 
-    // const test = new Test({
-    //     flashcards: req.body.flashcards,
-    //     multichoices: req.body.multichoices,
-    //     topic: req.body.topic,
-    //     truefalse: req.body.truefalse,
-    // });
-
     try {
         findUser.tests.push({
-            flashcards: req.body.flashcards,
-            multichoices: req.body.multichoices,
-            topic: req.body.topic,
-            truefalse: req.body.truefalse,
+            flashcards: req.body.data.flashcards,
+            multichoices: req.body.data.multichoices,
+            topic: req.body.data.topic,
+            truefalse: req.body.data.truefalse,
         });
         console.log(findUser);
         const updatedUser = await findUser.save();

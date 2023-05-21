@@ -203,29 +203,30 @@ const NotesInput = ({ onNext, data, setData }) => {
     };
 
     return (
-
-        <><div className="col-span-full">
-            <label htmlFor="Notes" className="block text-4xl font-bold leading-6 text-gray-900 my-12">
-                Copy your notes 
-            </label>
-            <div className="my-2">
-                <textarea
-                    id="about"
-                    name="about"
-                    rows={3}
-                    className="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 w-80"
-                    defaultValue={''}
-                    value={text}
-                    onChange={handleChange} />
+        <div className="bg-gray-700 min-h-screen">
+            <><div className="col-span-full">
+                <label htmlFor="Notes" className="block text-4xl font-bold leading-6 text-gray-200 pt-20 pb-10">
+                    Copy your notes
+                </label>
+                <div className="my-2">
+                    <textarea
+                        id="about"
+                        name="about"
+                        rows={3}
+                        className="rounded-md border-0 py-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 w-80"
+                        defaultValue={''}
+                        value={text}
+                        onChange={handleChange} />
+                </div>
+                <p className="mb-8 leading-6 text-gray-300 py-10">Insert your notes to generate practice questions.<br /> Please keep it of medium length! 🔥</p>
             </div>
-            <p className="mb-8 leading-6 text-gray-600">Insert your notes to generate practice questions.</p>
+                <button
+                    className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
+                    onClick={handleButtonClick}
+                >
+                    Generate Questions
+                </button></>
         </div>
-            <button
-                className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
-                onClick={handleButtonClick}
-            >
-                Generate Questions
-            </button></>
     );
 };
 
