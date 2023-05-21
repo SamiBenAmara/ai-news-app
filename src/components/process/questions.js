@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const TestQuestions = ({ onNext, data, setData }) => {
+
+    const navigate = useNavigate();
 
     const handleJsonChange = (
         event,
@@ -31,8 +35,14 @@ const TestQuestions = ({ onNext, data, setData }) => {
     };
 
 
-    const handleClick = () => {
+    const saveTest = async () => {
         onNext();
+
+        axios.post(`http://localhost:5000/notes/notes`, { email: localStorage.getItem('email'), data: data })
+        .then((res) => {
+            console.log(res);
+        })
+        .catch(error => console.log(error));
     };
     return (
         <>
@@ -43,7 +53,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                     Let's scroll down and double check the generated questions! If you want to change anything, you can do so here. ✅
                 </div>
                 <h1 class="text-4xl font-bold mb-4">{data.topic}</h1>
-                <h2>Multiple Choice Questions</h2>
+                <h2 class="text-xl font-bold">Multiple Choice Questions</h2>
                 {data.multichoices.map((question, index) => (
                     <div key={index}>
                         <h4 class="text-left">Question {index + 1}</h4>
@@ -94,7 +104,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                     </div>
                 ))}
 
-                <h2>True/False Questions</h2>
+                <h2 class="text-xl font-bold">True/False Questions</h2>
                 {data.truefalse.map((question, index) => (
                     <div key={index}>
                         <h4>Question {index + 1}</h4>
@@ -130,8 +140,9 @@ const TestQuestions = ({ onNext, data, setData }) => {
                     </div>
                 ))}
 
-                <h2>Flashcards</h2>
+                <h2 class="text-xl font-bold">Flashcards</h2>
                 {data.flashcards.map((flashcard, index) => (
+                <div>
                     <div key={index}>
                         <h4>Flashcard {index + 1}</h4>
                         <div>
@@ -155,14 +166,25 @@ const TestQuestions = ({ onNext, data, setData }) => {
                             />
                         </div>
                     </div>
-                ))}
-                <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-                    onClick={handleClick}
-                >
-                    Save and Continue
-                </button>
-            </div>
+                    <div>
+                        <label htmlFor={`flashcard-back-${index}`}>Back: </label>
+                        <input
+                            type="text"
+                            class="w-full"
+                            id={`flashcard-back-${index}`}
+                            value={flashcard.back}
+                            onChange={(event) => handleJsonChange(event, 'flashcards', index, 'back')}
+                        />
+                    </div>
+                </div>
+            ))}
+            <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                onClick={saveTest}
+            >
+                Finished?
+            </button>
+        </div>
         </>
     );
 };

@@ -50,4 +50,29 @@ router.post('/signin', async (req, res) => {
 
 });
 
+router.post('/notes', async (req, res) => {
+
+    const findUser = await User.findOne({ email: req.body.email });
+
+    if (!findUser) {
+        req.status(400).json({ message: "User does not exist" });
+    }
+
+    console.log(req.body);
+
+    try {
+        findUser.tests.push({
+            flashcards: req.body.data.flashcards,
+            multichoices: req.body.data.multichoices,
+            topic: req.body.data.topic,
+            truefalse: req.body.data.truefalse,
+        });
+        console.log(findUser);
+        const updatedUser = await findUser.save();
+        res.json(updatedUser);
+    } catch (error) {
+        res.status(400).json({ message: "Error adding notes" });
+    }
+});
+
 module.exports = router;
