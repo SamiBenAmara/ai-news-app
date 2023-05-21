@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
+const Test = require('../models/test');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -48,6 +49,38 @@ router.post('/signin', async (req, res) => {
         res.status(400).json({ message: "User does not exist" });
     }
 
+});
+
+router.post('/notes', async (req, res) => {
+
+    const findUser = await User.findOne({ email: req.body.email });
+
+    if (!findUser) {
+        req.status(400).json({ message: "User does not exist" });
+    }
+
+    console.log(req.body);
+
+    // const test = new Test({
+    //     flashcards: req.body.flashcards,
+    //     multichoices: req.body.multichoices,
+    //     topic: req.body.topic,
+    //     truefalse: req.body.truefalse,
+    // });
+
+    try {
+        findUser.tests.push({
+            flashcards: req.body.flashcards,
+            multichoices: req.body.multichoices,
+            topic: req.body.topic,
+            truefalse: req.body.truefalse,
+        });
+        console.log(findUser);
+        const updatedUser = await findUser.save();
+        res.json(updatedUser);
+    } catch (error) {
+        res.status(400).json({ message: "Error adding notes" });
+    }
 });
 
 module.exports = router;

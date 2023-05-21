@@ -53,18 +53,4 @@ const testSchema = new mongoose.Schema({
     },
 });
 
-const userSchema = new mongoose.Schema({
-    email: {
-        type: String,
-        required: true,
-    },
-    password: {
-        type: String,
-        required: true,
-    },
-    tests: {
-        type: [testSchema],
-    }
-});
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Test', testSchema);
