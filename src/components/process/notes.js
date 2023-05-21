@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Transition } from '@headlessui/react';
+
 const temptest = {
     "multichoices": [
         {
@@ -122,6 +124,7 @@ const temptest = {
 }
 const NotesInput = ({ onNext, data, setData }) => {
     const [text, setText] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (event) => {
         setText(event.target.value);
@@ -137,6 +140,7 @@ const NotesInput = ({ onNext, data, setData }) => {
     }
 
     const handleButtonClick = async () => {
+        setIsLoading(true);
 
         setData(temptest);
         onNext();
@@ -198,7 +202,7 @@ const NotesInput = ({ onNext, data, setData }) => {
             setData(completion.data.choices[0].message.content);
             onNext();
         }
-
+        setIsLoading(false);
         onNext();
     };
 
@@ -220,12 +224,34 @@ const NotesInput = ({ onNext, data, setData }) => {
                 </div>
                 <p className="mb-8 leading-6 text-gray-300 py-10">Insert your notes to generate practice questions.<br /> Please keep it of medium length! 🔥</p>
             </div>
-                <button
-                    className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
-                    onClick={handleButtonClick}
+                <Transition
+                    show={isLoading}
+                    enter="transition-opacity duration-200"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="transition-opacity duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                    className="absolute inset-0 flex items-center justify-center"
                 >
-                    Generate Questions
-                </button></>
+                    <div className="w-6 h-6 border-t-2 border-b-2 border-[#00adb5] rounded-full animate-spin" />
+                </Transition>
+                <Transition
+                    show={!isLoading}
+                    enter="transition-opacity duration-200"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="transition-opacity duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    <button
+                        className="bg-[#00adb5] hover:bg-[#00565a] text-white font-bold py-2 px-4 rounded mt-4"
+                        onClick={handleButtonClick}
+                    >
+                        Generate Questions
+                    </button>
+                </Transition></>
         </div>
     );
 };
