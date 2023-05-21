@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './questions.css'
 const TestQuestions = ({ onNext, data, setData }) => {
 
     const handleJsonChange = (
@@ -38,10 +38,13 @@ const TestQuestions = ({ onNext, data, setData }) => {
         <>
             <h1 class="text-4xl font-bold mb-4">{data.topic}</h1>
             <h2>Multiple Choice Questions</h2>
+
+
             {data.multichoices.map((question, index) => (
                 <div key={index}>
                     <h4>Question {index + 1}</h4>
                     <div>
+                        
                         <label htmlFor={`mc-question-${index}`}>Question: </label>
                         <input
                             type="text"
@@ -53,27 +56,33 @@ const TestQuestions = ({ onNext, data, setData }) => {
                     </div>
                     <div>
                         <label htmlFor={`mc-possible-answers-${index}`}>Possible Answers: </label>
-                        {question.possible_answers.map((answer, answerIndex) => (
-                            <div key={answerIndex}>
-                                <input
-                                    type="text"
-                                    id={`mc-possible-answer-${index}-${answerIndex}`}
-                                    class="w-full"
-                                    value={answer}
-                                    onChange={(event) => {
-                                        const updatedAnswers = [...question.possible_answers];
-                                        updatedAnswers[answerIndex] = event.target.value;
-                                        handleJsonChange(
-                                            event,
-                                            'multichoices',
-                                            index,
-                                            'possible_answers',
-                                            updatedAnswers
-                                        );
-                                    }}
-                                />
-                            </div>
-                        ))}
+
+                        <div className = "iteration-container">
+                        
+        
+                            {question.possible_answers.map((answer, answerIndex) => (
+                                <div key={answerIndex}>
+                                    <input
+                                        type="text"
+                                        id={`mc-possible-answer-${index}-${answerIndex}`}
+                                        /*class="w-full"*/
+                                        value={answer}
+                                        onChange={(event) => {
+                                            const updatedAnswers = [...question.possible_answers];
+                                            updatedAnswers[answerIndex] = event.target.value;
+                                            handleJsonChange(
+                                                event,
+                                                'multichoices',
+                                                index,
+                                                'possible_answers',
+                                                updatedAnswers
+                                            );
+                                        }}
+                                    />
+                                </div>
+                            ))}
+
+                        </div>
                     </div>
                     <div>
                         <label htmlFor={`mc-correct-answer-${index}`}>Correct Answer: </label>
@@ -86,6 +95,7 @@ const TestQuestions = ({ onNext, data, setData }) => {
                     </div>
                 </div>
             ))}
+
 
             <h2>True/False Questions</h2>
             {data.truefalse.map((question, index) => (
